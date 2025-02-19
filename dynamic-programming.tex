@@ -1,6 +1,15 @@
 \documentclass[a4paper, 12pt]{article}
 
-\usepackage{myconfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titlesec}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\titlespacing*{\section}{0pt}{0pt}{0pt} % {left}{before}{after}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
 
 \begin{document}
 
@@ -60,6 +69,9 @@ This can be solved by reasoning backwards from $t=10$:
   \item At $t = 9$, the total earnings from accepting a ``good'' job is $2 \times 100 = 200$ because that job will last for two years. The total earnings from accepting a ``bad'' job is $2 \times 44 = 88$. The total expected earnings from rejecting a job offer are $0$ now plus the value of the next job offer, which will either be $44$ with $\frac{1}{2}$ probability or $100$ with $\frac{1}{2}$ probability, for an average (``expected'') value of $\frac {\$100+\$44}{2}=\$72$. Therefore, the job available at $t=9$ should be accepted.
   \item At $t=8$, the total earnings from accepting a ``good'' job is $3\times \$100=\$300$; the total earnings from accepting a ``bad'' job is $3\times \$44=\$132$. The total expected earnings from rejecting a job offer is $\$0$ now plus the total expected earnings from waiting for a job offer at $t=9$. As previously concluded, any offer at $t=9$ should be accepted and the expected value of doing so is ${\frac {\$200+\$88}{2}}=\$144$. Therefore, at $t=8$, total expected earnings are higher if the person waits for the next offer rather than accepting a ``bad'' job.
 \end{enumerate}
+
+
+By continuing to work backwards, it can be verified that a ``bad'' offer should only be accepted if the person is still unemployed at $t=9$ or $t=10$; a bad offer should be rejected at any time up to and including $t=8$. Generalizing this example intuitively, it corresponds to the principle that if one expects to work in a job for a long time, it is worth picking carefully.
 
 \subsubsection{Math interpretation}
 
@@ -231,7 +243,7 @@ And the expected optimal value at year 9.
 \end{aligned}
 \]
 
-So by thinking very hard now, we can see that the optimal strategy is:
+If you go through the remaining years and use some inductive reasoning, you can see that the optimal strategy to maximize salary over this 10 year period is:
 
 \[
   a(x) = \begin{cases}
