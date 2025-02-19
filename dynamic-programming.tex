@@ -4,6 +4,9 @@
 \usepackage{amssymb}
 \usepackage{titlesec}
 
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 
@@ -257,5 +260,34 @@ If you go through the remaining years and use some inductive reasoning, you can 
     \end{cases}, & x_{j} = \text{no job}
   \end{cases}
 \]
+
+\section{Automating the solution}
+
+As programmers who love automation, this whole backwards inductive reasoning thing is a massive pain, so we'll write a program to do this for us.
+
+The trick is simply to use recursion to find the value of $V(x)$ and $a(x)$ at every possible value of $x$, thereby effectively ``obtaining'' the function of $V(x)$ and $a(x)$.
+
+To do this we'll start by attempting to find the most optimal value of an initial state $V(x_{0})$. This'll require us to find $F(x_{0}, a) + V(T(x_{0}, a))$ for all values of $a$ in $\Gamma(x_{0})$. You'll notice that these values depend on the most optimal value of the next state $x_{1} = T(x_{0}, a)$, so we need to first compute $V(x_{1})$ for each value of $a$ before we can find $V(x_{0})$. Obviously $V(x_{1})$ will likely depend on some $V(x_{2})$ for each value $a \in \Gamma(x_{1})$ until we reach a base case for $V(x)$.
+
+\begin{center}
+  \begin{tikzpicture}
+    [sibling distance=8em, level distance=4em]
+    \node {$V(x_{0})$}
+      child {node {$V(T(x_{0}, a_{0}))$}
+        child {node {$V(T(T(x_{0}, a_{0}), a_{0}))$}}
+        child {node {...}}
+      }
+      child {node {$V(T(x_{0}, a_{1}))$}
+        child {node {}}
+        child {node {$V(T(T(x_{0}, a_{0}), a_{1}))$}}
+      };
+  \end{tikzpicture}
+\end{center}
+
+Then, since you have the values of the base cases by definition, you can compute the values of the values that depend on the base cases, then the values that depend on those recursively until you reach your initial state again.
+
+In this process, you find the value of $V(x)$ and $a(x)$ for every $x$ originating from the initial state.
+
+To optimize this process, we would probably want to keep track of the values of $V(x)$ for every state $x$ in some sort of cache, recursion and memoization, sound familiar? This is exactly the idea behind the recursive method of doing DP.
 
 \end{document}
