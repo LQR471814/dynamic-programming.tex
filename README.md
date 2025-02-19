@@ -1,6 +1,6 @@
 ## dynamic-programming.tex
 
-> A mathematical explainer of dynamic programming.
+> A mathematical explainer for dynamic programming.
 
 Dynamic programming is more of a concept and a way of thinking rather than a specific algorithm or data structure, which is why it is hard for programmers to grasp, and especially to apply in actual problems.
 
