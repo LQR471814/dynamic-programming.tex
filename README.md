@@ -6,7 +6,7 @@ Dynamic programming is more of a concept and a way of thinking rather than a spe
 
 This document intends to address this by introducing dynamic programming through the original mathematical definition, the bellman equation, which will provide a much more specific and concrete framework (and formula) for you to solve dynamic programming problems with.
 
-You can read the explainer [here](./dynamic-programming.pdf).
+You can read the explainer [here](./dynamic_programming.pdf).
 
 ### Sources
 
