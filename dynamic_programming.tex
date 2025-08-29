@@ -32,17 +32,13 @@ decision is known as \emph{state}. (ex. To gauge how much to
 spend, you must know how much you have. Therefore wealth $W$ would
 be one of the state variables)
 
-Variables chosen by the agent are called \emph{chosen variables},
-these are decisions made based on \emph{state variables} which
-influence the next state (though next state is often also
-influenced by stuff outside the \emph{chosen variables}).
-
-Dynamic programming describes the optimal chain of decisions by
-finding a rule that determines the most optimal decision given any
-possible of the state. (ex. If consumption only depends on wealth,
-you would want to find a function $c(W)$ which gives the optimal
-consumption for any degree of wealth) This is known as a
-\emph{policy function}.
+Dynamic programming describes the optimal chain of decisions to
+maximize the \emph{objective function} by finding a rule that
+determines the most optimal decision given any possible value of
+the state. (ex. If consumption only depends on wealth, you would
+want to find a function $c(W)$ which gives the optimal consumption
+for any degree of wealth) This is known as a \emph{policy
+function}.
 
 \section{Formalization}
 
@@ -50,10 +46,14 @@ Suppose $x_{t}$ is the state at a time $t$, the initial state
 being $x_{0}$.
 
 At any point the set of possible actions is defined as $a_{t} \in
-\Gamma(x_{t})$, where: 1) $a_{t}$ are the particular values for a
-set of control variables (variables that influence the next state)
-2) $\Gamma(x_{t})$ is the set of actions that can be taken at
-state $x_{t}$.
+\Gamma(x_{t})$, where:
+
+\begin{itemize}
+  \item $a_{t}$ are the particular values for a set of control
+    variables (variables that influence the next state)
+  \item $\Gamma(x_{t})$ is the set of actions that can be taken at
+    state $x_{t}$.
+\end{itemize}
 
 State changes from $x$ to a new state $T(x, a)$ when action $a$ is
 taken.
@@ -88,7 +88,7 @@ for the next 10 years ($t = 1, 2, 3, ...$).
 
 At each value $t$, they may encounter a choice between a ``good''
 job offering $\$100$ in salary or a ``bad'' job offering $\$44$,
-each with an equal probability of being offered. 
+each with an equal probability of being offered.
 
 \begin{itemize}
   \item Pick the available job offered.
